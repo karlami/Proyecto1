@@ -17,7 +17,7 @@ public class Main {
         
         PanelFiguras panel = new PanelFiguras(listaDeObjetos);
         ventana.add(panel);
-        ventana.setSize(500,400);
+        ventana.setSize(750,600);
         ventana.setVisible(true);
         
         ListaSimple li = new ListaSimple();
