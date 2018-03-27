@@ -21,4 +21,21 @@ public class Enemigo extends Coordenada{
         this.largo = nuevo.largo;
         this.ancho = nuevo.ancho;
     }
+
+    public float getLargo() {
+        return largo;
+    }
+
+    public void setLargo(float largo) {
+        this.largo = largo;
+    }
+
+    public float getAncho() {
+        return ancho;
+    }
+
+    public void setAncho(float ancho) {
+        this.ancho = ancho;
+    }
+    
 }

@@ -14,10 +14,12 @@ public class Main {
         
         Ventana ventana = new Ventana("Invaders");
         ListaSimple listaDeObjetos = new ListaSimple();
-        
+        Coordenada cor1 = new Coordenada(250,250);
+        RectanguloGrafico enemigo = new RectanguloGrafico(cor1,50,50,Color.red);
+        listaDeObjetos.add(enemigo);
         PanelFiguras panel = new PanelFiguras(listaDeObjetos);
         ventana.add(panel);
-        ventana.setSize(750,600);
+        ventana.setSize(800,600);
         ventana.setVisible(true);
         
         ListaSimple li = new ListaSimple();
