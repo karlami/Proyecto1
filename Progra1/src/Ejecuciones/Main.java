@@ -2,6 +2,8 @@
 package Ejecuciones;
 import Logica.*;
 import EstructurasDatos.*;
+import java.awt.*;
+
 public class Main {
 
     /**
@@ -9,6 +11,14 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Ventana ventana = new Ventana("Invaders");
+        ListaSimple listaDeObjetos = new ListaSimple();
+        
+        PanelFiguras panel = new PanelFiguras(listaDeObjetos);
+        ventana.add(panel);
+        ventana.setSize(500,400);
+        ventana.setVisible(true);
         
         ListaSimple li = new ListaSimple();
         li.add(5);

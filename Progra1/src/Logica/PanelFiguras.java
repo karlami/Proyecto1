@@ -5,16 +5,16 @@ package Logica;
 import EstructurasDatos.ListaSimple;
 import java.awt.*;
 import javax.swing.JPanel;
-public class Panel extends JPanel{
+public class PanelFiguras extends JPanel{
     
     ListaSimple lista;
     
     /**
-     * Constructor de la clase Panel
+     * Constructor de la clase PanelFiguras
      * @param v todos los objetos a dibujar en panel que recibe del Main
      */
     
-    public Panel(ListaSimple v){
+    public PanelFiguras(ListaSimple v){
         
         this.lista = v;
         
