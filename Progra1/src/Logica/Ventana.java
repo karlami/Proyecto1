@@ -1,5 +1,6 @@
 
 package Logica;
+import java.awt.Color;
 import javax.swing.JFrame;
 import java.awt.event.*;
 public class Ventana extends JFrame implements WindowListener{
@@ -12,8 +13,9 @@ public class Ventana extends JFrame implements WindowListener{
     
     public Ventana(String titulo){
         super(titulo);
-        setSize(500,500);
+        setSize(750,750);
         addWindowListener(this);
+        //setBackground(Color.white);
         
     }
 
