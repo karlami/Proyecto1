@@ -21,6 +21,9 @@ public class Main {
         li.print();
         li.delete(9);
         li.print();
+        li.get(2);
+        li.getNode(5);
+        li.print();
     }
     
 }

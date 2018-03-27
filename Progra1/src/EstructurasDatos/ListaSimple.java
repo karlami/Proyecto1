@@ -45,7 +45,7 @@ public class ListaSimple <T> { private NodeLista<T> head;
       }
       current.setNext(null);
       capacidad -= 1;
-    } else if (pos_aux >= size()) {
+    } else if (pos_aux >= getSize()) {
       System.out.println("No se encuentra el elemento");
     } else {
       int b = 0;
@@ -82,7 +82,11 @@ public class ListaSimple <T> { private NodeLista<T> head;
       }
     }
   }
-  
+  /**
+   * Devuelve el nodo en la posicion de la lista a elegir
+   * @param i para indicar la posicion de la lista a devolver el dato del nodo
+   * @return el valor del nodo en la posicion indicada
+   */
   public T get(int i) {
     NodeLista<T> aux = getHead();
     int x = 0;
@@ -94,9 +98,14 @@ public class ListaSimple <T> { private NodeLista<T> head;
       System.out.println("El elemento no se encuentra en la lista");
       return null;
     }
+    System.out.println(aux.getData());
     return aux.getData();
   }
-  
+  /**
+   * Busca el nodo que contenga el dato del buscado
+   * @param i que contiene el valor del nodo a buscar
+   * @return el nodo que coincide con el requerido
+   */
   public NodeLista<T> getNode(int i)
   {
     NodeLista<T> aux = getHead();
@@ -109,6 +118,7 @@ public class ListaSimple <T> { private NodeLista<T> head;
       System.out.println("El elemento no se encuentra en la lista");
       return null;
     }
+    System.out.println(aux);
     return aux;
   }
   
@@ -126,7 +136,7 @@ public class ListaSimple <T> { private NodeLista<T> head;
     capacidad = 0;
   }
   
-  public int size()
+  public int getSize()
   {
     return capacidad;
   }
