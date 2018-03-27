@@ -16,7 +16,11 @@ public class Main {
         ListaSimple listaDeObjetos = new ListaSimple();
         Coordenada cor1 = new Coordenada(250,250);
         RectanguloGrafico enemigo = new RectanguloGrafico(cor1,50,50,Color.red);
+        Coordenada cor2 = new Coordenada(500,250);
+        CirculoGrafico bala = new CirculoGrafico(cor2,50,Color.BLACK);
+        
         listaDeObjetos.add(enemigo);
+        listaDeObjetos.add(bala);
         PanelFiguras panel = new PanelFiguras(listaDeObjetos);
         ventana.add(panel);
         ventana.setSize(800,600);
