@@ -21,13 +21,13 @@ public class Main {
         Coordenada cor3 = new Coordenada(475,500);
         Coordenada cor4 = new Coordenada(425,575);
         Coordenada cor5 = new Coordenada(525,575);
-        TrianguloGrafico k = new TrianguloGrafico(cor3,cor4,cor5,Color.pink);
+        TrianguloGrafico nave = new TrianguloGrafico(cor3,cor4,cor5,Color.pink);
         
         CirculoGrafico bala = new CirculoGrafico(cor2,50,Color.BLACK);
         
-        listaDeObjetos.add(enemigo);
-        listaDeObjetos.add(bala);
-        listaDeObjetos.add(k);
+        //listaDeObjetos.add(enemigo);
+        //listaDeObjetos.add(bala);
+        listaDeObjetos.add(nave);
         
         PanelFiguras panel = new PanelFiguras(listaDeObjetos);
         ventana.add(panel);
