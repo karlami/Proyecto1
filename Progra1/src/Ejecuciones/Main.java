@@ -30,6 +30,7 @@ public class Main {
         listaDeObjetos.add(nave);
         
         PanelFiguras panel = new PanelFiguras(listaDeObjetos);
+        panel.refNave(nave);
         ventana.add(panel);
         ventana.setSize(800,600);
         ventana.setVisible(true);
