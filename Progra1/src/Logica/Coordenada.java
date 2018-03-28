@@ -21,7 +21,7 @@ public class Coordenada {
     }
     
     public float getX() {
-        return x;
+        return this.x;
     }
 
     public void setX(float x) {
@@ -29,7 +29,7 @@ public class Coordenada {
     }
 
     public float getY() {
-        return y;
+        return this.y;
     }
 
     public void setY(float y) {
