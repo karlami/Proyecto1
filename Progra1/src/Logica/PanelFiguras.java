@@ -29,12 +29,18 @@ public class PanelFiguras extends JPanel implements KeyListener{
     }
     /**
      * Crea objeto de tipo Dibujable y dbuja a medida
-     * que recorre la lista de objetos
+     * que recorre la lista de objetos, se pinta la imagen 
+     * una vez dibujada
      * @param g 
      */
     @Override
     public void paint(Graphics g){
-        
+        //Contiene la dimension del grafico
+        Dimension d = getSize();
+        Image imagen = createImage(d.width,d.height);
+        //Se le asignan los graficos de la imagen creada
+        Graphics buff = imagen.getGraphics();
+         
         Dibujable dib;
         for(int i=0;i<lista.getSize();i++){
             /**
@@ -42,10 +48,18 @@ public class PanelFiguras extends JPanel implements KeyListener{
              * para poderlo asignar
              */
             dib = (Dibujable)lista.get(i);
-            dib.dibujar(g);
+            dib.dibujar(buff);
+            g.drawImage(imagen, 0,0, null);
         }
+            
+        }
+    
+    @Override
+    public void update(Graphics g){
+        paint (g);
     }
-
+    
+            
     @Override
     public void keyTyped(KeyEvent e) {
         
@@ -56,14 +70,14 @@ public class PanelFiguras extends JPanel implements KeyListener{
         int tecla = e.getKeyCode();
         
         if(tecla == KeyEvent.VK_LEFT){
-            this.nave.pintar(this.getGraphics(), Color.black);
+            
             this.nave.mover(movimientoIzq);
-            this.nave.pintar(this.getGraphics(), Color.pink);
+            
         }
         if(tecla == KeyEvent.VK_RIGHT){
-            this.nave.pintar(this.getGraphics(), Color.black);
+            
             this.nave.mover(movimientoDer);
-            this.nave.pintar(this.getGraphics(), Color.pink);
+          
         }
     }
 
@@ -86,5 +100,12 @@ public class PanelFiguras extends JPanel implements KeyListener{
     public void refNave(TrianguloGrafico n){
         this.nave = n;
     }
+    
+    public void iniciar(){
+        while(true){
+            repaint();
+        }
+    }
+    
     
 }
