@@ -56,7 +56,7 @@ public class PanelFiguras extends JPanel implements KeyListener{
     
     @Override
     public void update(Graphics g){
-        paint (g);
+        paint(g);
     }
     
             
