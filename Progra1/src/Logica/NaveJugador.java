@@ -63,4 +63,12 @@ public class NaveJugador extends Coordenada{
             
         }
     }
+    
+    public void mover(Coordenada nuevaCoord){
+        //este metodo es el que se puede usar la logica para mantenerlos en el centro los enemigos
+        setVertice(this.Suma(nuevaCoord), 1);
+        setVertice(this.cor1.Suma(nuevaCoord), 2);
+        setVertice(this.cor2.Suma(nuevaCoord), 3);
+        
+    }
 }
