@@ -79,6 +79,15 @@ public class PanelFiguras extends JPanel implements KeyListener{
             this.nave.mover(movimientoDer);
           
         }
+        //bala cada vez que se apreta espacio
+        //se agrega a a lista de balas de la nave
+        //y la lista de objtetos que se pinta
+        if(tecla == KeyEvent.VK_Z){
+            CirculoGrafico bala = nave.balaNave();
+            nave.balas.add(bala);
+            lista.add(bala);
+        }
+        
     }
 
     @Override
@@ -92,20 +101,38 @@ public class PanelFiguras extends JPanel implements KeyListener{
         }
         if(tecla == KeyEvent.VK_RIGHT){
             
-            this.nave.mover(movimientoNulo);
-            
+            this.nave.mover(movimientoNulo);    
         }
+        if(tecla == KeyEvent.VK_Z){}
     }
     
     public void refNave(TrianguloGrafico n){
         this.nave = n;
     }
-    
+    /*
+    Intenta fijarse que si la lista de balas no esta vacia
+    las mueve pintandolas
+    */
     public void iniciar(){
         while(true){
+            //para que salte una excepcion pero
+            //que siga corriendo, por falta de memoria u otros
+            try{
+                if(!nave.balas.isEmpty()){
+                    nave.ciclo();
+                }
+                //se ejecute el while cada 50 miliseg (velocidad)
+               Thread.sleep(50); 
+            }catch(InterruptedException err)
+            {
+                System.out.println(err);
+            }
             repaint();
+            }
+            
+            
         }
-    }
+    
     
     
 }
