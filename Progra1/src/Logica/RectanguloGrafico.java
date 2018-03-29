@@ -14,6 +14,18 @@ public class RectanguloGrafico extends Enemigo implements Dibujable{
         
     }
     /**
+     * Mediante dos numeros enteros se crea rango que sera usado
+     * para tomar un entero random entre ese rango
+     * @param Max forma parte del extremo del rango, debe ser el maximo
+     * @param Min forma parte del extremo del rango, debe ser el minimo
+     * @return 
+     */
+    public static int aleatorio(int Max, int Min)
+    {
+        return (int) (Math.random() *(Max-Min));
+    }
+    
+    /**
      * Recibe un objeto de tipo Graphics para que se dibuje
      * @param dw de tipo Graphics
      */
@@ -21,10 +33,15 @@ public class RectanguloGrafico extends Enemigo implements Dibujable{
     @Override
     public void dibujar(Graphics dw) {
         dw.setColor(color);
-        dw.fillRect((int)this.getX(), (int)this.getY(), (int)this.getLargo(), (int)this.getAncho());
-        
-        
+        dw.fillRect((int)this.getX(), (int)this.getY(), (int)this.getLargo(), (int)this.getAncho()); 
      
+    }
+    /**
+     * Toma la coordenada del enemigo en "y" para sumarla
+     */
+    public void cicloR(){
+        float y = this.getY();
+        this.setY(y += 5);
     }
     
 }
