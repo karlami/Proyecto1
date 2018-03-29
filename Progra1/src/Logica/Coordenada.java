@@ -37,7 +37,7 @@ public class Coordenada {
     }
     
     public Coordenada Suma(Coordenada S){
-        float Sumx= this.x + S.getX();
+        float Sumx = this.x + S.getX();
         float Sumy =this.y + S.getY();
         
         Coordenada Cor = new Coordenada(Sumx,Sumy);
