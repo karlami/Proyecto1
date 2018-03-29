@@ -15,6 +15,14 @@ public class PanelFiguras extends JPanel implements KeyListener{
     Coordenada movimientoIzq = new Coordenada(-25,0); //mov x en izquierda
     Coordenada movimientoDer = new Coordenada(25,0); //mov x en izquierda
     Coordenada movimientoNulo = new Coordenada(0,0); //mov x nulo
+    
+    RectanguloGrafico enemigo1;
+    RectanguloGrafico enemigo2;
+    RectanguloGrafico enemigo3;
+    RectanguloGrafico enemigo4;
+    RectanguloGrafico enemigo5;
+    
+    
     /**
      * Constructor de la clase PanelFiguras
      * @param v todos los objetos a dibujar en panel que recibe del Main
@@ -109,6 +117,18 @@ public class PanelFiguras extends JPanel implements KeyListener{
     public void refNave(TrianguloGrafico n){
         this.nave = n;
     }
+    
+    public void refEnem(RectanguloGrafico a,RectanguloGrafico b,RectanguloGrafico c,
+    RectanguloGrafico d,RectanguloGrafico e){
+        
+        enemigo1 = a;
+        enemigo2 = b;
+        enemigo3 = c;
+        enemigo4 = d;
+        enemigo5 = e;
+        
+    }
+    
     /*
     Intenta fijarse que si la lista de balas no esta vacia
     las mueve pintandolas
@@ -121,6 +141,7 @@ public class PanelFiguras extends JPanel implements KeyListener{
                 if(!nave.balas.isEmpty()){
                     nave.ciclo();
                 }
+                enemigo5.setY(200);
                 //se ejecute el while cada 50 miliseg (velocidad)
                Thread.sleep(50); 
             }catch(InterruptedException err)
