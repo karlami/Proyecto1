@@ -1,10 +1,12 @@
 
 package Logica;
+import EstructurasDatos.ListaSimple;
 
 public class NaveJugador extends Coordenada{
     
     public Coordenada cor1 = new Coordenada(); //Toma coordenada de la izquierda
     public Coordenada cor2 = new Coordenada(); //Toma coordenada de la derecha
+    ListaSimple balas = new ListaSimple();
     
     /**
      * La coordenada que se hereda va a tomar el lugar
