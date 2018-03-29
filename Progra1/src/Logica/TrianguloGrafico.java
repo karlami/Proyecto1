@@ -38,4 +38,22 @@ public class TrianguloGrafico extends NaveJugador implements Dibujable{
         dw.fillPolygon(p);
     }
     
+    public CirculoGrafico balaNave(){
+        
+        Coordenada salida = new Coordenada(this.getX(), this.getY());
+        CirculoGrafico bala = new CirculoGrafico(salida,5, Color.YELLOW );
+        return bala;
+     
+        
+    }
+    public void ciclo(){
+        //itere mientras haya balas en la lista de balas
+        for(int i=0; i<this.balas.getSize();i++){
+            CirculoGrafico y = (CirculoGrafico) this.balas.get(i);
+            //porque queremos que se mueva para arriba la bala
+            float x = y.getY();
+            y.setY(x-= 13);
+        }
+    }
+    
 }
