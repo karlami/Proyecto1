@@ -3,6 +3,7 @@
  */
 package Logica;
 import EstructurasDatos.ListaSimple;
+import static Logica.RectanguloGrafico.aleatorio;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -141,7 +142,39 @@ public class PanelFiguras extends JPanel implements KeyListener{
                 if(!nave.balas.isEmpty()){
                     nave.ciclo();
                 }
-                enemigo5.setY(200);
+                enemigo1.cicloR();
+                enemigo2.cicloR();
+                enemigo3.cicloR();
+                enemigo4.cicloR();
+                enemigo5.cicloR();
+                //Si coordenada en "Y" es mayor que 525, volver a empezar de 0
+                
+                if(enemigo1.getY() > 525){
+                    int rango = aleatorio(800,50);
+                    enemigo1.setY(0);
+                    enemigo1.setX(rango);
+                }
+                if(enemigo2.getY() > 525){
+                    int rango = aleatorio(800,50);
+                    enemigo2.setY(0);
+                    enemigo2.setX(rango);
+                }
+                if(enemigo3.getY() > 525){
+                    int rango = aleatorio(800,50);
+                    enemigo3.setY(0);
+                    enemigo3.setX(rango);
+                }
+                if(enemigo4.getY() > 525){
+                    int rango = aleatorio(800,50);
+                    enemigo4.setY(0);
+                    enemigo4.setX(rango);
+                }
+                if(enemigo5.getY() > 525){
+                    int rango = aleatorio(800,50);
+                    enemigo5.setY(0);
+                    enemigo5.setX(rango);
+                }
+                
                 //se ejecute el while cada 50 miliseg (velocidad)
                Thread.sleep(50); 
             }catch(InterruptedException err)
