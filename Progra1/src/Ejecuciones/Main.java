@@ -32,6 +32,27 @@ public class Main {
         //listaDeObjetos.add(enemigo);
         //listaDeObjetos.add(bala);
         
+        TextoGrafico vidas = new TextoGrafico("Vidas", Color.white, 1700,200);
+        vidas.setSize(35);
+        listaDeObjetos.add(vidas);
+        
+        TextoGrafico nvidas = new TextoGrafico("3", Color.white, 1700,300);
+        nvidas.setSize(40);
+        listaDeObjetos.add(nvidas); 
+        
+        TextoGrafico score = new TextoGrafico("Puntos", Color.white, 1700,400);
+        score.setSize(35);
+        listaDeObjetos.add(score);
+        
+        TextoGrafico puntos = new TextoGrafico("0", Color.white, 1700,500);
+        puntos.setSize(40);
+        listaDeObjetos.add(puntos);
+        
+        TextoGrafico txtFinal = new TextoGrafico("Fin del juego", Color.white, 900,500);
+        txtFinal.setSize(100);
+        
+        
+        
         int rango = aleatorio(800,50);
         Coordenada salida = new Coordenada(rango,0);
         RectanguloGrafico enemigo1 = new RectanguloGrafico(salida,25,25,Color.red);
@@ -63,7 +84,7 @@ public class Main {
         panel.refNave(nave);
         panel.refEnem(enemigo1, enemigo2, enemigo3, enemigo4, enemigo5);
         ventana.add(panel);
-        ventana.setSize(800,600);
+        ventana.setSize(1000,600);
         ventana.setVisible(true);
         panel.iniciar();
         
