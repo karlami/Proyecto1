@@ -10,9 +10,8 @@ public class RectanguloGrafico extends Enemigo implements Dibujable{
     public RectanguloGrafico(Coordenada cor, float x, float y, Color color){
         super(cor, x, y);
         this.color = color;
-    }{
-        
     }
+    
     /**
      * Mediante dos numeros enteros se crea rango que sera usado
      * para tomar un entero random entre ese rango
@@ -44,4 +43,7 @@ public class RectanguloGrafico extends Enemigo implements Dibujable{
         this.setY(y += 5);
     }
     
+    public void pintarR(Color color){
+        this.color = color;
+    }
 }
