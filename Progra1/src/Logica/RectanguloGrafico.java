@@ -44,4 +44,8 @@ public class RectanguloGrafico extends Enemigo implements Dibujable{
         this.setY(y += 5);
     }
     
+    public void pintarR(Color color){
+        this.color = color;
+    }
+    
 }
