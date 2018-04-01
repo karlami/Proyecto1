@@ -31,8 +31,8 @@ public class TrianguloGrafico extends NaveJugador implements Dibujable{
     
     public void pintar(Graphics dw, Color color) {
         dw.setColor(color);
-        int []x = {(int)this.getX(),(int)this.cor1.getX(), (int)this.cor2.getX()};
-        int []y = {(int)this.getY(),(int)this.cor1.getY(), (int)this.cor2.getY()};
+        int []x = {(int)this.getX(),(int)this.cor2.getX(), (int)this.cor1.getX()};
+        int []y = {(int)this.getY(),(int)this.cor1.getY(), (int)this.cor1.getY()};
         
         Polygon p = new Polygon(x,y,3);
         dw.fillPolygon(p);

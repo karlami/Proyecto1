@@ -11,15 +11,17 @@ import javax.swing.JPanel;
 public class PanelFiguras extends JPanel implements KeyListener{
     
     ListaSimple lista;
-    ListaSimple listaEnemigos = new ListaSimple();
     
     TrianguloGrafico nave;
     Coordenada movimientoIzq = new Coordenada(-25,0); //mov x en izquierda
     Coordenada movimientoDer = new Coordenada(25,0); //mov x en izquierda
     Coordenada movimientoNulo = new Coordenada(0,0); //mov x nulo
     
-    int contadorEnemigos = 5;
-    
+    RectanguloGrafico enemigo1;
+    RectanguloGrafico enemigo2;
+    RectanguloGrafico enemigo3;
+    RectanguloGrafico enemigo4;
+    RectanguloGrafico enemigo5;
     
     
     /**
@@ -120,51 +122,18 @@ public class PanelFiguras extends JPanel implements KeyListener{
     public void refEnem(RectanguloGrafico a,RectanguloGrafico b,RectanguloGrafico c,
     RectanguloGrafico d,RectanguloGrafico e){
         
-        listaEnemigos.add(a);
-        listaEnemigos.add(b);
-        listaEnemigos.add(c);
-        listaEnemigos.add(d);
-        listaEnemigos.add(e);   
+        enemigo1 = a;
+        enemigo2 = b;
+        enemigo3 = c;
+        enemigo4 = d;
+        enemigo5 = e;
+        
     }
     
-    /**
-     * Identificar cuando las coordenadas de los objetos estan iguales
-     * o cerca (cuando las coordenadas de los extremos estan casi igualadas)
-     */
-    public void colision(){
-        for(int i=0;i< nave.balas.getSize();i++){
-            CirculoGrafico bala = (CirculoGrafico) nave.balas.get(i);
-            for(int j=0;j<listaEnemigos.getSize();j++){
-                RectanguloGrafico enemigos = (RectanguloGrafico) listaEnemigos.get(j);
-                Coordenada coorBala = new Coordenada(bala.getX(), bala.getY());
-                
-                Coordenada coorDerecha = new Coordenada(enemigos.getX()+30, enemigos.getY());
-                Coordenada coorIzquierda = new Coordenada(enemigos.getX()-15, enemigos.getY());
-                Coordenada coorMedio = new Coordenada(enemigos.getX(), enemigos.getY());
-                //ver si las coordenadas de la bala chocan con las del enemigo
-                if(coorBala.getX() > coorIzquierda.getX() && coorBala.getX() < coorDerecha.getX()
-                         && coorBala.getY() < coorMedio.getY()){
-                    enemigos.pintarR(Color.DARK_GRAY);
-                    bala.pintarB(Color.DARK_GRAY);
-                    bala.setY(-100);
-                    enemigos.setY(-100);
-                    nave.balas.delete(bala);
-                    listaEnemigos.delete(enemigos);
-                    contadorEnemigos--;
-                }
-                {
-                    
-                    
-                }
-            }
-            
-        }
-    }
-    
-    /**
-     * Intenta fijarse que si la lista de balas no esta vacia
+    /*
+    Intenta fijarse que si la lista de balas no esta vacia
     las mueve pintandolas
-     */
+    */
     public void iniciar(){
         while(true){
             //para que salte una excepcion pero
@@ -173,29 +142,39 @@ public class PanelFiguras extends JPanel implements KeyListener{
                 if(!nave.balas.isEmpty()){
                     nave.ciclo();
                 }
-                for(int i=0;i<listaEnemigos.getSize();i++){
-                    RectanguloGrafico rect = (RectanguloGrafico) listaEnemigos.get(i);
-                    rect.cicloR();
-                    //Si coordenada en "Y" es mayor que 525, volver a empezar de 0
-                    if(rect.getY() > 525){
-                        int rango = aleatorio(800,50);
-                        rect.setY(0);
-                        rect.setX(rango);    
-                    }  
+                enemigo1.cicloR();
+                enemigo2.cicloR();
+                enemigo3.cicloR();
+                enemigo4.cicloR();
+                enemigo5.cicloR();
+                //Si coordenada en "Y" es mayor que 525, volver a empezar de 0
+                
+                if(enemigo1.getY() > 525){
+                    int rango = aleatorio(800,50);
+                    enemigo1.setY(0);
+                    enemigo1.setX(rango);
                 }
-                //este no lo ocupo porque es hasta que el
-                //jefe este muerto, no necesitan volver a crearse
-            if(contadorEnemigos < 5)  {
-                int rango = aleatorio(800,50);
-                Coordenada inicio = new Coordenada(rango,0);
-                RectanguloGrafico nuevo = new RectanguloGrafico(inicio, 25, 25, Color.red);
-                listaEnemigos.add(nuevo);
-                lista.add(nuevo);
-                nuevo.cicloR();
-                contadorEnemigos++;
-            } 
-  
-            colision();    
+                if(enemigo2.getY() > 525){
+                    int rango = aleatorio(800,50);
+                    enemigo2.setY(0);
+                    enemigo2.setX(rango);
+                }
+                if(enemigo3.getY() > 525){
+                    int rango = aleatorio(800,50);
+                    enemigo3.setY(0);
+                    enemigo3.setX(rango);
+                }
+                if(enemigo4.getY() > 525){
+                    int rango = aleatorio(800,50);
+                    enemigo4.setY(0);
+                    enemigo4.setX(rango);
+                }
+                if(enemigo5.getY() > 525){
+                    int rango = aleatorio(800,50);
+                    enemigo5.setY(0);
+                    enemigo5.setX(rango);
+                }
+                
                 //se ejecute el while cada 50 miliseg (velocidad)
                Thread.sleep(50); 
             }catch(InterruptedException err)
@@ -207,5 +186,7 @@ public class PanelFiguras extends JPanel implements KeyListener{
             
             
         }
-   
+    
+    
+    
 }

@@ -19,9 +19,6 @@ public class CirculoGrafico extends Bala implements Dibujable{
         dw.fillOval((int)(this.getX()-this.getRadio()), (int)(this.getY()-this.getRadio()), (int)(2*this.getRadio()), (int)(2*this.getRadio()));
         
     }
-    public void pintarB(Color color){
-        this.color = color;
-    }
     
     
 }
