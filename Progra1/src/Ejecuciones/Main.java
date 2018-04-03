@@ -83,6 +83,9 @@ public class Main {
         PanelFiguras panel = new PanelFiguras(listaDeObjetos);
         panel.refNave(nave);
         panel.refEnem(enemigo1, enemigo2, enemigo3, enemigo4, enemigo5);
+        panel.refFinal(txtFinal);
+        panel.refVida(nvidas);
+        panel.refPuntos(puntos);
         ventana.add(panel);
         ventana.setSize(1000,600);
         ventana.setVisible(true);
