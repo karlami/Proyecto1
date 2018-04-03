@@ -37,10 +37,11 @@ public class RectanguloGrafico extends Enemigo implements Dibujable{
     }
     /**
      * Toma la coordenada del enemigo en "y" para sumarla
+     * @param mov para poder cambiar la velocidad de los enemigos
      */
-    public void cicloR(){
+    public void cicloR(int mov){
         float y = this.getY();
-        this.setY(y += 5);
+        this.setY(y += mov);
     }
     
     public void pintarR(Color color){
