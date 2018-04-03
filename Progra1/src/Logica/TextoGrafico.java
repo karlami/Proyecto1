@@ -58,5 +58,7 @@ public class TextoGrafico implements Dibujable{
     public int getSize(){
         return size;
     }
-    
+    public void setColor(Color color){
+        this.color = color;
+    }
 }
