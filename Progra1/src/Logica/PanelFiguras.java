@@ -21,6 +21,9 @@ public class PanelFiguras extends JPanel implements KeyListener{
     int contadorEnemigos = 5;
     int score;
     int vidas = 3;
+    int mov = 5;
+    int maxEnem =5;
+    
     TextoGrafico txtPuntos;
     TextoGrafico txtVida;
     TextoGrafico txtFinal;
@@ -221,7 +224,7 @@ public class PanelFiguras extends JPanel implements KeyListener{
                 }
                 for(int i=0;i<listaEnemigos.getSize();i++){
                     RectanguloGrafico rect = (RectanguloGrafico) listaEnemigos.get(i);
-                    rect.cicloR();
+                    rect.cicloR(mov);
                     //Si coordenada en "Y" es mayor que 525, volver a empezar de 0
                     if(rect.getY() > 525){
                         int rango = aleatorio(800,50);
@@ -231,15 +234,24 @@ public class PanelFiguras extends JPanel implements KeyListener{
                 }
                 //este no lo ocupo porque es hasta que el
                 //jefe este muerto, no necesitan volver a crearse
-            if(contadorEnemigos < 5)  {
+            if(contadorEnemigos < maxEnem)  {
                 int rango = aleatorio(800,50);
                 Coordenada inicio = new Coordenada(rango,0);
                 RectanguloGrafico nuevo = new RectanguloGrafico(inicio, 25, 25, Color.red);
                 listaEnemigos.add(nuevo);
                 lista.add(nuevo);
-                nuevo.cicloR();
+                nuevo.cicloR(mov);
                 contadorEnemigos++;
             } 
+            
+            int nivel =1;
+            String niveles = "" + nivel;
+            TextoGrafico textoNivel = new TextoGrafico("Nivel",Color.white,1700,600);
+            textoNivel.setSize(50);
+            TextoGrafico numTxtNivel = new TextoGrafico(niveles,Color.red,1700,700);
+            numTxtNivel.setSize(50);
+            lista.add(numTxtNivel);
+            lista.add(textoNivel);
   
             colision(); 
                 
