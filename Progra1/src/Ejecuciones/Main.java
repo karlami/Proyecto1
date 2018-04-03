@@ -48,7 +48,7 @@ public class Main {
         puntos.setSize(40);
         listaDeObjetos.add(puntos);
         
-        TextoGrafico txtFinal = new TextoGrafico("Fin del juego", Color.white, 900,500);
+        TextoGrafico txtFinal = new TextoGrafico("Fin del juego", Color.MAGENTA, 900,500);
         txtFinal.setSize(100);
         
         
