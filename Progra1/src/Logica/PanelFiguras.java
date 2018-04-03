@@ -17,11 +17,12 @@ public class PanelFiguras extends JPanel implements KeyListener{
     Coordenada movimientoIzq = new Coordenada(-25,0); //mov x en izquierda
     Coordenada movimientoDer = new Coordenada(25,0); //mov x en izquierda
     Coordenada movimientoNulo = new Coordenada(0,0); //mov x nulo
-    
 
     int contadorEnemigos = 5;
-    TextoGrafico puntos;
-    TextoGrafico vidas;
+    int score;
+    int vidas = 3;
+    TextoGrafico txtPuntos;
+    TextoGrafico txtVida;
     TextoGrafico txtFinal;
    
     /**
@@ -131,11 +132,11 @@ public class PanelFiguras extends JPanel implements KeyListener{
     
 
     public void refPuntos(TextoGrafico puntos){
-        this.puntos = puntos;
+        this.txtPuntos = puntos;
     }
     
     public void refVida(TextoGrafico vida){
-        this.vidas = vida;
+        this.txtVida = vida;
     }
     
     public void refFinal(TextoGrafico textFinal){
@@ -156,10 +157,11 @@ public class PanelFiguras extends JPanel implements KeyListener{
                 
                 Coordenada coorDerecha = new Coordenada(enemigos.getX()+30, enemigos.getY());
                 Coordenada coorIzquierda = new Coordenada(enemigos.getX()-15, enemigos.getY());
+                //coordenada del enemigo en "x" y "y"
                 Coordenada coorMedio = new Coordenada(enemigos.getX(), enemigos.getY());
                 //ver si las coordenadas de la bala chocan con las del enemigo
                 if(coorBala.getX() > coorIzquierda.getX() && coorBala.getX() < coorDerecha.getX()
-                         && coorBala.getY() < coorMedio.getY()){
+                         && coorBala.getY() < coorMedio.getY() && (coorBala.getY()+25) > coorMedio.getY()){
                     enemigos.pintarR(Color.DARK_GRAY);
                     bala.pintarB(Color.DARK_GRAY);
                     bala.setY(-100);
@@ -167,11 +169,39 @@ public class PanelFiguras extends JPanel implements KeyListener{
                     nave.balas.delete(bala);
                     listaEnemigos.delete(enemigos);
                     contadorEnemigos--;
+                    score = score + 5;
+                    txtPuntos.setColor(Color.DARK_GRAY);
+                    String nuevoScore = "" + score;
+                    TextoGrafico newPuntos = new TextoGrafico(nuevoScore, Color.RED, 1700, 500);
+                    newPuntos.setSize(40);
+                    txtPuntos = newPuntos;
+                    lista.add(txtPuntos);
                 }
-                {
+                //475 punta de la nave
+                if((coorMedio.getY() > 475 && coorMedio.getY() < 550) &&
+                        (nave.cor1.getX() < coorMedio.getX()) && (nave.cor2.getX() > coorMedio.getX())){
+                    score = score -5;
+                    vidas --;
+                    //concatena el String vacio y el nuevo score
+                    String nuevoScore = "" + score;
+                    String nuevasVidas = "" + vidas;
+                    txtVida.setColor(Color.DARK_GRAY);
+                    txtPuntos.setColor(Color.DARK_GRAY);
+                    TextoGrafico newVidas = new TextoGrafico(nuevasVidas, Color.red, 1700, 300);
+                    newVidas.setSize(40);
+                    txtVida = newVidas;
+                    lista.add(txtPuntos);
+                    TextoGrafico newPuntos = new TextoGrafico(nuevoScore, Color.red, 1700, 500);
+                    newPuntos.setSize(40);
+                    txtPuntos = newPuntos;
+                    lista.add(txtVida);
                     
                     
+                    listaEnemigos.delete(enemigos);
+                    enemigos.setY(2000);
+                    contadorEnemigos--;
                 }
+               
             }
             
         }
