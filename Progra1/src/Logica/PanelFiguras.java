@@ -14,6 +14,7 @@ public class PanelFiguras extends JPanel implements KeyListener{
     ListaSimple listaEnemigos = new ListaSimple();
     
     TrianguloGrafico nave;
+    
     Coordenada movimientoIzq = new Coordenada(-25,0); //mov x en izquierda
     Coordenada movimientoDer = new Coordenada(25,0); //mov x en izquierda
     Coordenada movimientoNulo = new Coordenada(0,0); //mov x nulo
@@ -27,6 +28,8 @@ public class PanelFiguras extends JPanel implements KeyListener{
     TextoGrafico txtPuntos;
     TextoGrafico txtVida;
     TextoGrafico txtFinal;
+    
+    Boolean finJuego = true;
    
     /**
      * Constructor de la clase PanelFiguras
@@ -215,7 +218,7 @@ public class PanelFiguras extends JPanel implements KeyListener{
      * las mueve pintandolas
      */
     public void iniciar(){
-        while(true){
+        while(finJuego){
             //para que salte una excepcion pero
             //que siga corriendo, por falta de memoria u otros
             try{
@@ -252,6 +255,28 @@ public class PanelFiguras extends JPanel implements KeyListener{
             numTxtNivel.setSize(50);
             lista.add(numTxtNivel);
             lista.add(textoNivel);
+            //aumenta nivel en 1 cuando llega a 50 puntos
+            //pinta a los enemigos de amarillo
+            if(score >= 50 && score < 100){
+                nivel = 2;
+                String newNivel = "" + nivel;
+                numTxtNivel.setColor(Color.darkGray);
+                TextoGrafico numNivel = new TextoGrafico(newNivel, Color.red, 1700,700);
+                numNivel.setSize(40);
+                numTxtNivel = numNivel;
+                lista.add(numTxtNivel);
+                mov = 7;
+                maxEnem = 6;
+                for(int i=0;i<listaEnemigos.getSize();i++){
+                    RectanguloGrafico rect = (RectanguloGrafico) listaEnemigos.get(i);
+                    rect.pintarR(Color.yellow);
+                }
+            }
+            
+            if(vidas <= 0){
+                finJuego = false;
+                lista.add(txtFinal);
+            }
   
             colision(); 
                 
